@@ -34,26 +34,32 @@ let currentTime = document.querySelector("#time");
 currentTime.innerHTML = `${hours}:${minutes}`;
 
 function showTempereture(responce) {
-  console.log(responce.data);
+  console.log(responce);
   let cityHTML = document.querySelector("#city");
-  cityHTML.innerHTML = responce.data.name;
+  cityHTML.innerHTML = responce.data.city;
   let temeratureElement = document.querySelector("#temperature");
-  temeratureElement.innerHTML = Math.round(responce.data.main.temp);
-  document.querySelector("#tempMax").innerHTML = responce.data.main.temp_max;
-  document.querySelector("#tempMin").innerHTML = responce.data.main.temp_min;
+  temeratureElement.innerHTML = Math.round(responce.data.temperature.current);
+  //document.querySelector("#tempMax").innerHTML = responce.data.main.temp_max;
+  //document.querySelector("#tempMin").innerHTML = responce.data.main.temp_min;
   document.querySelector("#wind").innerHTML = Math.round(
     responce.data.wind.speed
   );
   document.querySelector("#humidity").innerHTML = Math.round(
-    responce.data.main.humidity
+    responce.data.temperature.humidity
   );
   document.querySelector("#discription").innerHTML =
-    responce.data.weather[0].main;
+    responce.data.condition.description;
+  document
+    .querySelector("#icon")
+    .setAttribute("src", responce.data.condition.icon_url);
+  document
+    .querySelector("#icon")
+    .setAttribute("alt", responce.data.condition.description);
 }
 
 function search(city) {
-  let apiKey = "1266ad07b66517497b1acf79ea5a6a64";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&&units=metric`;
+  let apiKey = "3ba49e901d0tof3a381ffd812a82fa2e";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTempereture);
 }
 
