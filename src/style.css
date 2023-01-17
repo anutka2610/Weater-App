@@ -8,6 +8,16 @@ div ul {
 li:first-letter {
   text-transform: capitalize;
 }
+.currentTemperature {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 35px;
+  color: #0555aa;
+}
+.units {
+  font-size: 18px;
+  vertical-align: top;
+}
 .contener {
   margin: 40px;
   max-width: 800px;
