@@ -8,8 +8,10 @@ div ul {
 li:first-letter {
   text-transform: capitalize;
 }
-.currentTemperature {
+h2 {
   text-align: center;
+}
+.currentTemperature {
   padding-top: 10px;
   font-size: 35px;
   color: #0555aa;
@@ -43,7 +45,8 @@ li:first-letter {
   font-size: 24px;
   float: top;
 }
-.search {
+.search,
+.currentWeather {
   font-weight: 300;
   background-color: #007bff;
   color: white;

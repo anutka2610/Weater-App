@@ -34,7 +34,6 @@ let currentTime = document.querySelector("#time");
 currentTime.innerHTML = `${hours}:${minutes}`;
 
 function showTempereture(responce) {
-  console.log(responce);
   let cityHTML = document.querySelector("#city");
   cityHTML.innerHTML = responce.data.city;
   let temeratureElement = document.querySelector("#temperature");
