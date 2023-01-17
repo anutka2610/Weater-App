@@ -1,6 +1,13 @@
 h3 {
   line-height: 2;
 }
+div ul {
+  list-style: none;
+  padding: 0;
+}
+li:first-letter {
+  text-transform: capitalize;
+}
 .contener {
   margin: 40px;
   max-width: 800px;
