@@ -33,7 +33,8 @@ currentDay.innerHTML = `${day}, ${dayNumber}.${month}.${year}`;
 let currentTime = document.querySelector("#time");
 currentTime.innerHTML = `${hours}:${minutes}`;
 
-function showForecast() {
+function showForecast(responce) {
+  console.log(responce);
   let forecastElement = document.querySelector("#forecast-weather");
   let forecastHTML = "";
 
@@ -52,6 +53,13 @@ function showForecast() {
   });
 
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(query) {
+  let apiKey = "3ba49e901d0tof3a381ffd812a82fa2e";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${query}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+  console.log(apiUrl);
 }
 
 function showTempereture(responce) {
@@ -78,6 +86,7 @@ function showTempereture(responce) {
   document
     .querySelector("#icon")
     .setAttribute("alt", responce.data.condition.description);
+  getForecast(responce.data.city);
 }
 
 function search(city) {
@@ -136,4 +145,3 @@ function celsius(event) {
 celsiusLink.addEventListener("click", celsius);
 
 search("Amsterdam");
-showForecast();
