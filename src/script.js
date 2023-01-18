@@ -40,6 +40,9 @@ function showTempereture(responce) {
   temeratureElement.innerHTML = Math.round(responce.data.temperature.current);
   //document.querySelector("#tempMax").innerHTML = responce.data.main.temp_max;
   //document.querySelector("#tempMin").innerHTML = responce.data.main.temp_min;
+
+  celsiusTemperature = responce.data.temperature.current;
+
   document.querySelector("#wind").innerHTML = Math.round(
     responce.data.wind.speed
   );
@@ -90,21 +93,21 @@ current.addEventListener("click", handlePosition);
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", saerchCity);
 
-//let temeratureElement = document.querySelector("#temperature");
-//let temerature = temeratureElement.innerHTML;
-
-//let fahrenheitLink = document.querySelector("#fahrenheit-link");
-//function fahrenheit() {
-//let temeratur = Number(temerature);
-//let fah = Math.round((temeratur * 9) / 5 + 32);
-//temeratureElement.innerHTML = fah;
-//}
-//fahrenheitLink.addEventListener("click", fahrenheit);
-
-//let celLink = document.querySelector("#celsius-link");
-//function celsius() {
-//temeratureElement.innerHTML = 2;
-//}
-//celLink.addEventListener("click", celsius);
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+function fahrenheitTemperetare(event) {
+  event.preventDefault;
+  let temeratureElement = document.querySelector("#temperature");
+  let fahrenheitTemp = Math.round((celsiusTemperature * 9) / 5 + 32);
+  temeratureElement.innerHTML = fahrenheitTemp;
+}
+fahrenheitLink.addEventListener("click", fahrenheitTemperetare);
+let celsiusTemperature = null;
+let celLink = document.querySelector("#celsius-link");
+function celsius(event) {
+  event.preventDefault;
+  let temeratureElement = document.querySelector("#temperature");
+  temeratureElement.innerHTML = Math.round(celsiusTemperature);
+}
+celLink.addEventListener("click", celsius);
 
 search("Amsterdam");
