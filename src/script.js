@@ -33,22 +33,36 @@ currentDay.innerHTML = `${day}, ${dayNumber}.${month}.${year}`;
 let currentTime = document.querySelector("#time");
 currentTime.innerHTML = `${hours}:${minutes}`;
 
+function formatDay(times) {
+  let date = new Date(times * 1000);
+  console.log(date);
+  let day = date.getDay();
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function showForecast(responce) {
-  console.log(responce);
+  let forecast = responce.data.daily;
+  console.log(forecast);
   let forecastElement = document.querySelector("#forecast-weather");
   let forecastHTML = "";
 
-  days.forEach((day) => {
+  forecast.forEach((forecastDay) => {
     forecastHTML =
       forecastHTML +
       `
   <div class="col-2">
-            <h3>${day}</h3>
+            <h3>${formatDay(forecastDay.time)}</h3>
 
-            <p class="small"><small>13.12.2022</small></p>
+            <p class="small"><small>${forecastDay.time}</small></p>
 
-            <p class="emoji">🌤</p>
-            -6/-9
+            <p class="emoji">  <img src="${
+              forecastDay.condition.icon_url
+            }" alt="${forecastDay.condition.description}" /></p>
+            ${forecastDay.temperature.minimum}/${
+        forecastDay.temperature.maximum
+      }
           </div>`;
   });
 
