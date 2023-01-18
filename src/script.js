@@ -33,6 +33,27 @@ currentDay.innerHTML = `${day}, ${dayNumber}.${month}.${year}`;
 let currentTime = document.querySelector("#time");
 currentTime.innerHTML = `${hours}:${minutes}`;
 
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast-weather");
+  let forecastHTML = "";
+
+  days.forEach((day) => {
+    forecastHTML =
+      forecastHTML +
+      `
+  <div class="col-2">
+            <h3>${day}</h3>
+
+            <p class="small"><small>13.12.2022</small></p>
+
+            <p class="emoji">🌤</p>
+            -6/-9
+          </div>`;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showTempereture(responce) {
   let cityHTML = document.querySelector("#city");
   cityHTML.innerHTML = responce.data.city;
@@ -115,3 +136,4 @@ function celsius(event) {
 celsiusLink.addEventListener("click", celsius);
 
 search("Amsterdam");
+showForecast();
