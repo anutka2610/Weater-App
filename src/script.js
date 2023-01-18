@@ -96,18 +96,22 @@ form.addEventListener("submit", saerchCity);
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 function fahrenheitTemperetare(event) {
   event.preventDefault;
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
   let temeratureElement = document.querySelector("#temperature");
   let fahrenheitTemp = Math.round((celsiusTemperature * 9) / 5 + 32);
   temeratureElement.innerHTML = fahrenheitTemp;
 }
 fahrenheitLink.addEventListener("click", fahrenheitTemperetare);
 let celsiusTemperature = null;
-let celLink = document.querySelector("#celsius-link");
+let celsiusLink = document.querySelector("#celsius-link");
 function celsius(event) {
   event.preventDefault;
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   let temeratureElement = document.querySelector("#temperature");
   temeratureElement.innerHTML = Math.round(celsiusTemperature);
 }
-celLink.addEventListener("click", celsius);
+celsiusLink.addEventListener("click", celsius);
 
 search("Amsterdam");
