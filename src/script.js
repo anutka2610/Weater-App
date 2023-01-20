@@ -48,10 +48,11 @@ function showForecast(responce) {
   let forecastElement = document.querySelector("#forecast-weather");
   let forecastHTML = "";
 
-  forecast.forEach((forecastDay) => {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach((forecastDay, index) => {
+    if (index < 7 && index > 0) {
+      forecastHTML =
+        forecastHTML +
+        `
   <div class="col-2">
             <h3>${formatDay(forecastDay.time)}</h3>
 
@@ -60,10 +61,11 @@ function showForecast(responce) {
             <p class="emoji">  <img src="${
               forecastDay.condition.icon_url
             }" alt="${forecastDay.condition.description}" /></p>
-            ${forecastDay.temperature.minimum}/${
-        forecastDay.temperature.maximum
-      }
+            ${Math.round(forecastDay.temperature.minimum)}/${Math.round(
+          forecastDay.temperature.maximum
+        )}
           </div>`;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML;
