@@ -62,7 +62,7 @@ function showForecast(responce) {
         forecastHTML +
         `
   <div class="col-2">
-            <h3>${formatDay(forecastDay.time)}</h3>
+            <p class = "forecast-day">${formatDay(forecastDay.time)}</h3>
 
             <p class="small"><small>${fullDayNumber(
               forecastDay.time
@@ -70,7 +70,7 @@ function showForecast(responce) {
 
             <p class="emoji">  <img src="${
               forecastDay.condition.icon_url
-            }" alt="${forecastDay.condition.description}" /></p>
+            }" width="50px" alt="${forecastDay.condition.description}" /></p>
             ${Math.round(forecastDay.temperature.minimum)}/${Math.round(
           forecastDay.temperature.maximum
         )}
@@ -92,6 +92,7 @@ function getForecast(query) {
 }
 
 function showTempereture(responce) {
+  console.log(responce);
   let cityHTML = document.querySelector("#city");
   cityHTML.innerHTML = responce.data.city;
   let temeratureElement = document.querySelector("#temperature");
