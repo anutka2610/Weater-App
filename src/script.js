@@ -35,9 +35,7 @@ currentTime.innerHTML = `${hours}:${minutes}`;
 
 function formatDay(times) {
   let date = new Date(times * 1000);
-
   let day = date.getDay();
-
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
 }
@@ -51,7 +49,6 @@ function fullDayNumber(times) {
 }
 
 function showForecast(responce) {
-  console.log(responce);
   let forecast = responce.data.daily;
   let forecastElement = document.querySelector("#forecast-weather");
   let forecastHTML = "";
@@ -80,7 +77,7 @@ function showForecast(responce) {
 
   forecastElement.innerHTML = forecastHTML;
 
-  document.querySelector("#minMax").innerHTML = `Min / Max temp ( ${Math.round(
+  document.querySelector("#minMax").innerHTML = `Min/Max temp ( ${Math.round(
     forecast[0].temperature.maximum
   )} ℃/ ${Math.round(forecast[0].temperature.minimum)} ℃)`;
 }
@@ -92,7 +89,6 @@ function getForecast(query) {
 }
 
 function showTempereture(responce) {
-  console.log(responce);
   let cityHTML = document.querySelector("#city");
   cityHTML.innerHTML = responce.data.city;
   let temeratureElement = document.querySelector("#temperature");
@@ -145,7 +141,6 @@ function handlePosition(event) {
 
 let current = document.querySelector("#currentWeather");
 current.addEventListener("click", handlePosition);
-//old
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", saerchCity);

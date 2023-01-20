@@ -1,3 +1,7 @@
+body {
+  background-image: url(pexels-photo-436383.webp);
+  background-size: cover;
+}
 div ul {
   list-style: none;
   padding: 0;
@@ -8,6 +12,7 @@ li:first-letter {
 h2 {
   text-align: center;
 }
+
 .forecast-day {
   font-size: 20px;
   opacity: 0.8;
@@ -20,8 +25,8 @@ h2 {
 
 .currentTemperature {
   padding-top: 10px;
-  font-size: 35px;
-  color: #0555aa;
+  font-size: 40px;
+  color: rgb(15, 58, 130);
 }
 .units {
   font-size: 18px;
@@ -34,6 +39,7 @@ h2 {
   padding: 10px;
   font-family: "Source Serif Pro", serif;
   border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .header,
@@ -48,7 +54,7 @@ h2 {
 .search,
 .currentWeather {
   font-weight: 300;
-  background-color: #007bff;
+  background-color: rgb(15, 58, 130);
   color: white;
   text-align: center;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -58,7 +64,8 @@ h2 {
   padding: 5px 5px;
   transition: all 150ms ease-in-out;
 }
-.search:hover {
+.search:hover,
+.currentWeather:hover {
   background-color: #035dbd;
   cursor: pointer;
 }
@@ -69,12 +76,12 @@ h2 {
   text-align: center;
   font-size: 60px;
 }
-
 .small {
-  font-weight: 100;
+  font-weight: 150;
 }
 .form-control,
-.search {
+.search,
+.currentWeather {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 .buttom {
@@ -82,8 +89,4 @@ h2 {
 }
 .search-form {
   padding: 20px 0 20px 0;
-}
-
-div img {
-  text-align: center;
 }
