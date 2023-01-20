@@ -35,16 +35,23 @@ currentTime.innerHTML = `${hours}:${minutes}`;
 
 function formatDay(times) {
   let date = new Date(times * 1000);
-  console.log(date);
+
   let day = date.getDay();
 
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
 }
 
+function fullDayNumber(times) {
+  let date = new Date(times * 1000);
+  let fullDayNum = `${date.getDate()}.${
+    date.getMonth() + 1
+  }.${date.getFullYear()}`;
+  return fullDayNum;
+}
+
 function showForecast(responce) {
   let forecast = responce.data.daily;
-  console.log(forecast);
   let forecastElement = document.querySelector("#forecast-weather");
   let forecastHTML = "";
 
@@ -56,7 +63,9 @@ function showForecast(responce) {
   <div class="col-2">
             <h3>${formatDay(forecastDay.time)}</h3>
 
-            <p class="small"><small>${forecastDay.time}</small></p>
+            <p class="small"><small>${fullDayNumber(
+              forecastDay.time
+            )}</small></p>
 
             <p class="emoji">  <img src="${
               forecastDay.condition.icon_url
@@ -75,7 +84,6 @@ function getForecast(query) {
   let apiKey = "3ba49e901d0tof3a381ffd812a82fa2e";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${query}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showForecast);
-  console.log(apiUrl);
 }
 
 function showTempereture(responce) {
