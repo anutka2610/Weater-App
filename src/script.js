@@ -51,6 +51,7 @@ function fullDayNumber(times) {
 }
 
 function showForecast(responce) {
+  console.log(responce);
   let forecast = responce.data.daily;
   let forecastElement = document.querySelector("#forecast-weather");
   let forecastHTML = "";
@@ -78,6 +79,10 @@ function showForecast(responce) {
   });
 
   forecastElement.innerHTML = forecastHTML;
+
+  document.querySelector("#minMax").innerHTML = `Min / Max temp ( ${Math.round(
+    forecast[0].temperature.maximum
+  )} ℃/ ${Math.round(forecast[0].temperature.minimum)} ℃)`;
 }
 
 function getForecast(query) {
@@ -91,8 +96,6 @@ function showTempereture(responce) {
   cityHTML.innerHTML = responce.data.city;
   let temeratureElement = document.querySelector("#temperature");
   temeratureElement.innerHTML = Math.round(responce.data.temperature.current);
-  //document.querySelector("#tempMax").innerHTML = responce.data.main.temp_max;
-  //document.querySelector("#tempMin").innerHTML = responce.data.main.temp_min;
 
   celsiusTemperature = responce.data.temperature.current;
 
@@ -128,9 +131,8 @@ function saerchCity(event) {
 function searchLocation(position) {
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
-  let apiKey = "1266ad07b66517497b1acf79ea5a6a64";
-  let units = "metric";
-  let url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=${units}`;
+  let apiKey = "3ba49e901d0tof3a381ffd812a82fa2e";
+  let url = `https://api.shecodes.io/weather/v1/current?lon=${long}&lat=${lat}&key=${apiKey}&units=metric`;
 
   axios.get(url).then(showTempereture);
 }
