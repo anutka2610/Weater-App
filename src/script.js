@@ -89,6 +89,9 @@ function getForecast(query) {
 }
 
 function showTempereture(responce) {
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+
   let cityHTML = document.querySelector("#city");
   cityHTML.innerHTML = responce.data.city;
   let temeratureElement = document.querySelector("#temperature");
