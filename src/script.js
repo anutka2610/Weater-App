@@ -170,3 +170,4 @@ function celsius(event) {
 celsiusLink.addEventListener("click", celsius);
 
 search("Amsterdam");
+

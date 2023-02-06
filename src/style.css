@@ -66,7 +66,7 @@ h2 {
 }
 .search:hover,
 .currentWeather:hover {
-  background-color: #035dbd;
+  background-color: hsl(56, 93%, 57%);
   cursor: pointer;
 }
 .bottom {
