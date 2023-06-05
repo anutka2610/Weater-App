@@ -1,9 +1,9 @@
 # Weater-App
 This aplicetion is a final project SheCodes Plus module at SheCode course. 
-I made it from scratch. I used HTML page (Home page, About page, Contact page, Work page), CSS, made application responcive and SEO friendly. Also I learned how to use library to stile web-pages and created navbar.
+I made it from scratch. I used HTML, CSS and Bootstrap. I built first interactive application (use JavaScript). I learned how to integrate a live API to start building real applications.
 
 ## Link on application
- To see and check how it works you can use this link: https://dazzling-croquembouche-f0aa87.netlify.app/home.html
+ To see and check how it works you can use this link: https://dashing-belekoy-57dcfa.netlify.app/
 
 ## Feedback
 I am in the process of learning to become IT development. So have a loock on it, maybe you have idea how to improve it. To do this you need make some steps:
