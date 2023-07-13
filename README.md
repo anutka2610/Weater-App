@@ -3,7 +3,7 @@ This aplicetion is a final project SheCodes Plus module at SheCode course.
 I made it from scratch. I used HTML, CSS and Bootstrap. I built first interactive application (use JavaScript). I learned how to integrate a live API to start building real applications.
 
 ## Link on application
- To see and check how it works you can use this link: https://dashing-belekoy-57dcfa.netlify.app/
+ To see and check how it works you can use this link: https://weather-app-oriekhova.netlify.app/
 
 ## Feedback
 I am in the process of learning to become IT development. So have a loock on it, maybe you have idea how to improve it. To do this you need make some steps:
